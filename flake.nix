@@ -16,10 +16,8 @@
         default = pkgs.mkShell {
           packages = with pkgs;
             [ python311 ]
-            ++ (with pkgs.python311Packages; [ pip icecream virtualenv black isort ipykernel jupyterlab ]);
+            ++ (with pkgs.python311Packages; [ pip icecream virtualenv black isort ipykernel jupyterlab jupyter ipywidgets pyzmq tqdm numpy matplotlib pytorch torchvision torchmetrics scipy pillow ]);
           shellHook = ''
-            test ! -d .venv && virtualenv --system-site-packages .venv
-            source .venv/bin/activate
             echo
             echo "Activated environment"
           '';
